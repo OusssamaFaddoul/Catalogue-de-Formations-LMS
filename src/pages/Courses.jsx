@@ -144,7 +144,7 @@ export default function Courses() {
 
   return (
     <>
-      {/* Navbar */}
+      
       <nav className="navbar navbar-light" style={{background: 'linear-gradient(to right, #000000, #1a1a1a)', margin: 0, padding: '12px 0'}}>
         <div className="container-fluid">
           <h3 className="navbar-brand text-white mb-0">Admin Dashboard</h3>
@@ -153,7 +153,7 @@ export default function Courses() {
       </nav>
 
       <div className="d-flex">
-        {/* Sidebar */}
+       
         {sidebarOpen && (
           <div className="bg-dark text-white p-3" style={{minWidth: '200px', minHeight: '100vh', margin: 0}}>
             <button 
@@ -187,7 +187,7 @@ export default function Courses() {
           </div>
         )}
 
-        {/* Main Content */}
+      
         <div style={{flex: 1, width: '100%', margin: 0}}>
           {!sidebarOpen && (
             <button 
@@ -262,7 +262,7 @@ export default function Courses() {
                   </table>
                 </div>
 
-                {/* Pagination */}
+               
                 {totalPages > 1 && (
                   <div className="mt-4 d-flex justify-content-center gap-2">
                     {Array.from({ length: totalPages }, (_, i) => (
@@ -279,7 +279,7 @@ export default function Courses() {
               </>
             )}
 
-            {/* Modal */}
+            
             {showModal && (
               <div className="modal show d-block" style={{backgroundColor: 'rgba(0,0,0,0.5)'}}>
                 <div className="modal-dialog modal-lg">

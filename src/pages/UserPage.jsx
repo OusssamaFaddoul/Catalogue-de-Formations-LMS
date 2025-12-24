@@ -21,11 +21,11 @@ export default function UserPage() {
   const [loading, setLoading] = useState(true);
 
 
-  // Fetch courses on mount
+
   useEffect(() => {
     getCourses()
       .then(data => {
-        // Keep only published courses
+        
         const published = data.filter(
           c => c.status === "Publié"
         );
@@ -36,16 +36,16 @@ export default function UserPage() {
       setLoading(false);
   }, []);
 
-  // Filter courses based on search and category
+ 
   useEffect(() => {
     let result = courses;
 
-    // 🔍 Apply search filter first
+    
       const lowerSearch = search.toLowerCase();
       result = result.filter(c => c.titre.toLowerCase().includes(lowerSearch));
     
 
-    // 🏷 Apply category filter
+   
     if (selectedCategory !== "Tous") {
       result = result.filter(c => c.categorie === selectedCategory);
     }
@@ -59,7 +59,7 @@ export default function UserPage() {
       <div className="container my-5">
         <h2 className="fw-bold mb-4">Mes Cours</h2>
 
-        {/* 🔍 SEARCH */}
+      
         <div className="input-group mb-3">
           <input
             type="text"
@@ -70,7 +70,7 @@ export default function UserPage() {
           />
         </div>
 
-        {/* 🏷 CATEGORY SELECT */}
+       
         <div className="mb-4">
           {categories.map(cat => (
             <button
@@ -87,7 +87,7 @@ export default function UserPage() {
           ))}
         </div>
 
-        {/* 📚 COURSES */}
+       
         {loading ? (
           <p>Chargement...</p>
         ) : filteredCourses.length === 0 ? (

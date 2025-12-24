@@ -18,7 +18,7 @@ export default function Signup() {
     setError("");
     setLoading(true);
 
-    // Basic validation
+    
     if (!email || !password) {
       setError("All fields are required");
       setLoading(false);
@@ -31,11 +31,11 @@ export default function Signup() {
       return;
     }
 
-    // Role logic
+    
     const role = email.endsWith("@admin.com") ? "admin" : "user";
 
     try {
-      // Check if user already exists
+      
       const existingUser = await getUserByEmail(email);
 
       if (existingUser) {
@@ -44,7 +44,7 @@ export default function Signup() {
         return;
       }
 
-      // Create user (email + password + role)
+      
       await createUser({
         email,
         password,
@@ -52,7 +52,7 @@ export default function Signup() {
       });
 
       alert("Account created successfully!");
-      navigate("/login"); // go to login
+      navigate("/login"); 
     } catch (err) {
       console.error(err);
       setError("Failed to create account. Try again.");

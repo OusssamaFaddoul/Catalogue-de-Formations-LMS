@@ -24,9 +24,9 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
 
-  // Fetch courses on mount
+ 
   useEffect(() => {
-    // Get current user ID from localStorage
+    
     const user = localStorage.getItem('user');
     if (user) {
       const userData = JSON.parse(user);
@@ -35,7 +35,6 @@ const Home = () => {
 
     getCourses()
       .then(data => {
-        // Keep only published courses
         const published = data.filter(
           c => c.status === "Publié"
         );
@@ -46,18 +45,18 @@ const Home = () => {
       setLoading(false);
   }, []);
 
-  // Filter courses based on search and category
+  
   useEffect(() => {
     let result = courses;
 
-    // 🔍 Apply search filter first
+  
       const lowerSearch = search.toLowerCase();
       result = result.filter(c => c.titre.toLowerCase().includes(lowerSearch));
     
 
-    // 🏷 Apply category rules
+  
     if (selectedCategory === "Tous") {
-      // Keep only 1 course per category
+      
       const categoriesMap = {};
       result.forEach(c => {
         if (!categoriesMap[c.categorie]) {
@@ -66,7 +65,6 @@ const Home = () => {
       });
       result = Object.values(categoriesMap);
     } else {
-      // Show up to 3 courses for the selected category
       result = result.filter(c => c.categorie === selectedCategory).slice(0, 3);
     }
 
@@ -89,7 +87,7 @@ const Home = () => {
       <div className="container my-5">
         <h2 className="fw-bold mb-4">Catalogue de Cours</h2>
 
-        {/* 🔍 SEARCH */}
+        
         <div className="input-group mb-3">
           
           <input
@@ -101,7 +99,7 @@ const Home = () => {
           />
         </div>
 
-        {/* 🏷 CATEGORY SELECT */}
+       
         <div className="mb-4">
           {categories.map(cat => (
             <button
@@ -118,7 +116,7 @@ const Home = () => {
           ))}
         </div>
 
-        {/* 📚 COURSES */}
+  
         {loading ? (
           <p>Chargement...</p>
         ) : filteredCourses.length === 0 ? (

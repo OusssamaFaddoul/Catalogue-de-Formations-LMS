@@ -17,17 +17,17 @@ export default function AdminPage() {
 
   const loadData = async () => {
     try {
-      // Charger les utilisateurs
+      
       const usersResponse = await fetch('https://6945530aed253f51719afe95.mockapi.io/project/users');
       const usersData = await usersResponse.json();
       setUsers(Array.isArray(usersData) ? usersData : []);
 
-      // Charger les cours
+    
       const coursesResponse = await fetch('https://6945530aed253f51719afe95.mockapi.io/project/cours');
       const coursesData = await coursesResponse.json();
       setCourses(Array.isArray(coursesData) ? coursesData : []);
 
-      // Calculer les statistiques
+     
       setStats({
         users: usersData.length || 0,
         courses: coursesData.length || 0
@@ -41,7 +41,7 @@ export default function AdminPage() {
     }
   };
 
-  // Préparer les données pour les graphiques
+  
   const chartData = [
     { name: 'Utilisateurs', value: stats.users },
     { name: 'Cours', value: stats.courses }
@@ -85,7 +85,7 @@ export default function AdminPage() {
 
   return (
     <>
-      {/* Simple Navbar */}
+      
       <nav className="navbar navbar-light" style={{background: 'linear-gradient(to right, #000000, #1a1a1a)', margin: 0, padding: '12px 0'}}>
         <div className="container-fluid">
           <h3 className="navbar-brand text-white mb-0">Admin Dashboard</h3>
@@ -94,7 +94,7 @@ export default function AdminPage() {
       </nav>
 
       <div className="d-flex">
-        {/* Simple Sidebar */}
+        
         {sidebarOpen && (
           <div className="bg-dark text-white p-3" style={{minWidth: '200px', minHeight: '100vh', margin: 0, position: 'relative'}}>
             <button 
@@ -129,7 +129,7 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* Main Content */}
+        
         <div style={{flex: 1, width: '100%', margin: 0}}>
           {!sidebarOpen && (
             <button 
@@ -142,7 +142,7 @@ export default function AdminPage() {
           <div className="p-4" style={{marginTop: 0}}>
       <h2 className="h3 fw-bold mb-4">Tableau de Bord Admin</h2>
 
-      {/* Stats Cards */}
+      
       <div className="row mb-4">
         <div className="col-md-3">
           <div className="card bg-primary text-white">
@@ -178,7 +178,7 @@ export default function AdminPage() {
         </div>
       </div>
 
-      {/* Recent Users and All Courses */}
+      
       <div className="row">
         <div className="col-md-6">
           <div className="card shadow-sm mb-4">

@@ -55,7 +55,7 @@ const CourseCard = ({ course }) => {
         </div>
       </div>
 
-      {/* Modal for Course Details */}
+      
       {showDetails && (
         <div className="modal d-block" style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
           <div className="modal-dialog modal-lg">
