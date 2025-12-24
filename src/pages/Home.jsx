@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getCourses } from "../mockAPI/coursesApi";
 import CourseCard from "../components/CourseCard";
 import Hero from "../components/Hero";
@@ -74,6 +75,15 @@ const Home = () => {
 
   return (
     <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container">
+          <Link className="navbar-brand fw-bold" to="/">SkillHub Academy</Link>
+          <div className="d-flex ms-auto">
+            <Link to="/login" className="btn btn-outline-primary">Login</Link>
+          </div>
+        </div>
+      </nav>
+
       <Hero />
 
       <div className="container my-5">
@@ -81,7 +91,7 @@ const Home = () => {
 
         {/* 🔍 SEARCH */}
         <div className="input-group mb-3">
-          <span className="input-group-text">🔍</span>
+          
           <input
             type="text"
             className="form-control"

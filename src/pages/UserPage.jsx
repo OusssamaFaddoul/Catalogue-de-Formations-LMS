@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getCourses } from "../mockAPI/coursesApi";
 import CourseCard from "../components/CourseCard";
+import UserNavbar from "../components/UserNavbar";
+import Footer from "../components/Footer";
 
 const categories = [
   "Tous",
@@ -17,6 +19,7 @@ export default function UserPage() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Tous");
   const [loading, setLoading] = useState(true);
+
 
   // Fetch courses on mount
   useEffect(() => {
@@ -52,12 +55,12 @@ export default function UserPage() {
 
   return (
     <>
+      <UserNavbar />
       <div className="container my-5">
         <h2 className="fw-bold mb-4">Mes Cours</h2>
 
         {/* 🔍 SEARCH */}
         <div className="input-group mb-3">
-          <span className="input-group-text">🔍</span>
           <input
             type="text"
             className="form-control"
@@ -97,6 +100,7 @@ export default function UserPage() {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 }

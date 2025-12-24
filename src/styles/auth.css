@@ -13,17 +13,14 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #dddae0 100%);
+  /* simple neutral background */
+  background: #f5f7fa;
 }
 
 /* Animated Background Blobs */
 .auth-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  /* decorative blobs removed for simplified look */
+  display: none;
 }
 
 .gradient-blob {
@@ -175,10 +172,9 @@
 
 .form-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #007bff;
   background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.08);
 }
 
 .form-input:disabled {
@@ -238,9 +234,9 @@
   font-size: 16px;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #007bff; /* simple flat primary */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.15s ease, transform 0.12s ease;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -248,8 +244,15 @@
   gap: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  position: relative;
-  overflow: hidden;
+}
+
+.auth-button:hover:not(:disabled) {
+  background: #0069d9;
+  transform: translateY(-1px);
+}
+
+.auth-button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .auth-button::before {
@@ -309,10 +312,10 @@
 }
 
 .auth-link {
-  color: #667eea;
+  color: #007bff;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: color 0.15s ease;
   position: relative;
 }
 
@@ -323,8 +326,8 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  transition: width 0.3s ease;
+  background: #007bff;
+  transition: width 0.2s ease;
 }
 
 .auth-link:hover::after {

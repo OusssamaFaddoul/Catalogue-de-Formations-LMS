@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function AdminPage() {
   const [stats, setStats] = useState({ users: 0, courses: 0 });
@@ -95,7 +96,7 @@ export default function AdminPage() {
       <div className="d-flex">
         {/* Simple Sidebar */}
         {sidebarOpen && (
-          <div className="bg-dark text-white p-3" style={{minWidth: '200px', minHeight: '100vh', margin: 0}}>
+          <div className="bg-dark text-white p-3" style={{minWidth: '200px', minHeight: '100vh', margin: 0, position: 'relative'}}>
             <button 
               className="btn btn-outline-light btn-sm w-100 mb-3"
               onClick={() => setSidebarOpen(false)}
@@ -124,6 +125,7 @@ export default function AdminPage() {
                 </Link>
               </li>
             </ul>
+
           </div>
         )}
 
@@ -291,6 +293,7 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
+      
     </>
   );
 }

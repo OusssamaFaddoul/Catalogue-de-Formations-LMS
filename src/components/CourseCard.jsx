@@ -9,15 +9,9 @@ const CourseCard = ({ course }) => {
   return (
     <div className="col-md-4 mb-4">
       <div className="card h-100 shadow-sm">
+        <img src={image} className="card-img-top" alt={course.categorie}/>
 
-        {/* Image by Category */}
-        <img
-          src={image}
-          className="card-img-top"
-          alt={course.categorie}
-        />
-
-        {/* Level badge */}
+       
         <span className="position-absolute top-0 end-0 m-2 badge bg-primary">
           {course.niveau}
         </span>
@@ -88,30 +82,30 @@ const CourseCard = ({ course }) => {
                   <span className="badge bg-warning ms-2">{course.status}</span>
                 </div>
 
-                <h6 className="mt-4">📝 Description</h6>
+                <h6 className="mt-4"> Description</h6>
                 <p>{course.description}</p>
 
-                <h6>👨‍🏫 Instructeur</h6>
+                <h6> Instructeur</h6>
                 <p><strong>{course.instructeur}</strong></p>
 
                 <div className="row">
                   <div className="col-md-6">
-                    <h6>⏱ Durée</h6>
+                    <h6> Durée</h6>
                     <p>{course.duree}</p>
                   </div>
                   <div className="col-md-6">
-                    <h6>👥 Nombre d'étudiants</h6>
+                    <h6> Nombre d'étudiants</h6>
                     <p>{course.nombre_etudiants}</p>
                   </div>
                 </div>
 
                 <div className="row">
                   <div className="col-md-6">
-                    <h6>🎓 Certification</h6>
-                    <p>{course.certification ? '✅ Oui' : '❌ Non'}</p>
+                    <h6> Certification</h6>
+                    <p>{course.certification ? ' Oui' : ' Non'}</p>
                   </div>
                   <div className="col-md-6">
-                    <h6>💰 Prix</h6>
+                    <h6> Prix</h6>
                     <p className="text-success"><strong>{course.prix} €</strong></p>
                   </div>
                 </div>
